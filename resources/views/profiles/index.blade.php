@@ -19,7 +19,10 @@
                 <a href={{ $user->profile->facebook_url }} target="_blank">Facebook profile</a>
             </div>
             <div>
-                <a href="/post/create">+ New Post</a>
+                @can('update', $user->profile)
+                    <a href="/profile/{{ $user->id }}/edit">Edit profile</a>
+                    <a href="/post/create">+ New Post</a>
+                @endcan
             </div>
         </div>
     </div>

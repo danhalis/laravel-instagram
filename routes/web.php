@@ -23,6 +23,10 @@ Auth::routes();
 // https://laravel.com/docs/5.1/controllers#restful-resource-controllers
 Route::get('/profile/{user}', [App\Http\Controllers\UserProfileController::class, 'index'])->name('profile.show');
 
+Route::get('/profile/{user}/edit', [App\Http\Controllers\UserProfileController::class, 'edit'])->name('profile.edit');
+
+Route::patch('/profile/{user}', [App\Http\Controllers\UserProfileController::class, 'update'])->name('profile.update');
+
 Route::get('/post/create', [App\Http\Controllers\PostController::class, 'create'])->name('post.create');
 
 Route::post('/post', [App\Http\Controllers\PostController::class, 'store'])->name('post.store');
