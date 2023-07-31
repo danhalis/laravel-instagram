@@ -14,9 +14,9 @@
                 <div><strong>0</strong> following</div>
             </div>
             <div>
-                <p class="fw-bold">Hiếu Đào Lê Đức</p>
-                <p>🇻🇳 🇨🇦</p>
-                <a href="#" target="_blank">https://danhalis.github.io/portfolio/</a>
+                <p class="fw-bold">{{ $user->name }}</p>
+                <p>{{ $user->profile->bio }}</p>
+                <a href={{ $user->profile->facebook_url }} target="_blank">Facebook profile</a>
             </div>
         </div>
     </div>
