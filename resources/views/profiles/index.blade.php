@@ -18,6 +18,9 @@
                 <p>{{ $user->profile->bio }}</p>
                 <a href={{ $user->profile->facebook_url }} target="_blank">Facebook profile</a>
             </div>
+            <div>
+                <a href="#">+ New Post</a>
+            </div>
         </div>
     </div>
     <div class="row pt-5">

@@ -19,4 +19,10 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/profile/{user}', [App\Http\Controllers\UserProfileController::class, 'index'])->name('show');
+// METHOD - PATH - CONTROLLER, ACTION - ROUTE NAME
+// https://laravel.com/docs/5.1/controllers#restful-resource-controllers
+Route::get('/profile/{user}', [App\Http\Controllers\UserProfileController::class, 'index'])->name('profile.show');
+
+Route::get('/post/create', [App\Http\Controllers\PostController::class, 'create'])->name('post.create');
+
+Route::post('/post', [App\Http\Controllers\PostController::class, 'store'])->name('post.store');
