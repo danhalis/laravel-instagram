@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use Illuminate\Http\Request;
+use Intervention\Image\Facades\Image;
 
 class PostController extends Controller
 {
@@ -33,6 +34,10 @@ class PostController extends Controller
 
         // Store image in local storage
         $imagePath = $data['image']->store('uploads', 'public');
+
+        // Crop image to fit
+        $image = Image::make(public_path("storage/{$imagePath}"))->fit(1200, 1200);
+        $image->save();
 
         // Create the post
         auth()->user()->posts()->create([

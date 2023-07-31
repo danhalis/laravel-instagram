@@ -9,7 +9,7 @@
         <div class="col-9">
             <h3 class="mb-3">{{ $user->username }}</h3>
             <div class="d-flex gap-5 mb-2">
-                <div><strong>0</strong> posts</div>
+                <div><strong>{{ $user->posts->count() }}</strong> posts</div>
                 <div><strong>0</strong> followers</div>
                 <div><strong>0</strong> following</div>
             </div>
@@ -19,20 +19,16 @@
                 <a href={{ $user->profile->facebook_url }} target="_blank">Facebook profile</a>
             </div>
             <div>
-                <a href="#">+ New Post</a>
+                <a href="/post/create">+ New Post</a>
             </div>
         </div>
     </div>
-    <div class="row pt-5">
-        <div class="col-4">
-            <img class="w-100" src="https://raw.githubusercontent.com/danhalis/portfolio/master/public/about-photo.jpg" alt="" />
-        </div>
-        <div class="col-4">
-            <img class="w-100" src="https://raw.githubusercontent.com/danhalis/portfolio/master/public/about-photo.jpg" alt="" />
-        </div>
-        <div class="col-4">
-            <img class="w-100" src="https://raw.githubusercontent.com/danhalis/portfolio/master/public/about-photo.jpg" alt="" />
-        </div>
+    <div class="row pt-5 gx-4 gy-4">
+        @foreach($user->posts as $post)
+            <div class="col-4">
+                <img class="w-100" src="/storage/{{ $post->image }}" alt="" />
+            </div>
+        @endforeach
     </div>
 </div>
 @endsection
