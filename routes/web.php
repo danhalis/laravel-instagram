@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,14 +22,14 @@ Auth::routes();
 
 // METHOD - PATH - CONTROLLER, ACTION - ROUTE NAME
 // https://laravel.com/docs/5.1/controllers#restful-resource-controllers
-Route::get('/profile/{user}', [App\Http\Controllers\UserProfileController::class, 'index'])->name('profile.show');
+Route::get('/profile/{user}', [Controllers\UserProfileController::class, 'index'])->name('profile.show');
 
-Route::get('/profile/{user}/edit', [App\Http\Controllers\UserProfileController::class, 'edit'])->name('profile.edit');
+Route::get('/profile/{user}/edit', [Controllers\UserProfileController::class, 'edit'])->name('profile.edit');
 
-Route::patch('/profile/{user}', [App\Http\Controllers\UserProfileController::class, 'update'])->name('profile.update');
+Route::patch('/profile/{user}', [Controllers\UserProfileController::class, 'update'])->name('profile.update');
 
-Route::get('/post/create', [App\Http\Controllers\PostController::class, 'create'])->name('post.create');
+Route::get('/post/create', [Controllers\PostController::class, 'create'])->name('post.create');
 
-Route::post('/post', [App\Http\Controllers\PostController::class, 'store'])->name('post.store');
+Route::post('/post', [Controllers\PostController::class, 'store'])->name('post.store');
 
-Route::get('/post/{post}', [App\Http\Controllers\PostController::class, 'show'])->name('post.show');
+Route::get('/post/{post}', [Controllers\PostController::class, 'show'])->name('post.show');
